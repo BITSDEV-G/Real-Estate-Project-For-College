@@ -16,6 +16,17 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-md-4">
+                    <div class="top-contact float-right">
+                        <ul class="list-text-white d-table">
+                            <li><i class="fas fa-user text-primary mr-1"></i>
+                                <?php if (isset($_SESSION['uemail'])) { ?>
+                                    <a href="logout.php">Logout</a>&nbsp;&nbsp;<?php } else { ?>
+                                    <a href="login.php">SignUp&nbsp;&nbsp;<?php } ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -23,7 +34,10 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
                 <a class="navbar-brand" href="#">
-                    <img class="nav-logo" src="images/logo/logo.png" alt="Logo" style="max-height: 30px;">
+                    <video class="nav-logo" autoplay muted loop>
+                        <source src="images/logo/logo.mp4" type="video/mp4">
+                        <img src="images/logo/logo.png" alt="Logo" class="fallback-logo">
+                    </video>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -55,9 +69,7 @@
         </div>
     </div>
 </header>
-
 <style>
-    /* General Reset */
     * {
         margin: 0;
         padding: 0;
@@ -65,81 +77,95 @@
     }
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #f4f4f4; /* Light background for contrast */
+        background-color: #f4f4f4;
     }
-    /* Header Styles */
     #header {
-        position: relative;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        transition: top 0.3s; /* Smooth transition for header */
     }
     .bg-dark-blue {
-        background-color: #003366; /* Dark blue color */
+        background-color: #003366;
     }
     .top-header {
-        border-bottom: 1px solid #f39c12; /* Orange underline */
+        border-bottom: 1px solid #f39c12;
     }
     .top-header ul {
         padding: 0;
         margin: 0;
-        font-size: 0.8rem; /* Smaller font size */
+        font-size: 0.7rem; /* Smaller font size */
     }
     .top-header a {
         color: #ffffff;
         transition: color 0.3s ease;
     }
     .top-header a:hover {
-        color: #f39c12; /* Light orange on hover */
+        color: #f39c12;
+    }
+    .main-nav {
+        background-color: #ffffff;
+    }
+    .navbar-brand {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    .nav-logo {
+        max-height: 80px; /* Smaller logo height */
+        object-fit: contain;
+    }
+    .fallback-logo {
+        display: none;
     }
     .navbar-nav .nav-link {
-        color: #ffffff; /* White for navbar links */
-        padding: 8px 12px; /* Reduced padding for better compactness */
+        color: #003366;
+        padding: 6px 10px; /* Smaller padding */
         transition: background-color 0.3s ease, color 0.3s ease;
-        border-radius: 5px; /* Rounded corners */
+        border-radius: 5px;
+        font-size: 0.9rem; /* Smaller font size */
     }
     .navbar-nav .nav-link:hover {
-        background-color: #003366; /* Dark blue on hover */
-        color: #ffffff; /* White text on hover */
+        background-color: #003366;
+        color: #ffffff;
     }
     .dropdown-menu {
         border: none;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .dropdown-menu .nav-link {
-        color: #ffffff; /* White for dropdown links */
-        padding: 8px 12px; /* Reduced padding for dropdown links */
+        color: #003366;
+        padding: 6px 10px; /* Smaller padding */
         transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 0.9rem; /* Smaller font size */
     }
     .dropdown-menu .nav-link:hover {
-        background-color: #003366; /* Dark blue on dropdown link hover */
-        color: #ffffff; /* White text on hover */
+        background-color: #003366;
+        color: #ffffff;
     }
     .btn-submit {
-        background-color: #003366; /* Dark blue button color */
+        background-color: #003366;
         color: #ffffff;
         border: none;
-        padding: 8px 12px; /* Reduced padding for better compactness */
+        padding: 6px 10px; /* Smaller padding */
         transition: background-color 0.3s ease, transform 0.2s ease;
-        border-radius: 5px; /* Rounded corners */
-        font-weight: bold; /* Make the button text bold */
+        border-radius: 5px;
+        font-weight: bold;
     }
     .btn-submit:hover {
-        background-color: #f39c12; /* Button hover color */
-        transform: translateY(-2px); /* Slight lift effect */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+        background-color: #f39c12;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    .nav-logo {
-        max-height: 30px; /* Ensure logo fits well */
-        transition: transform 0.3s ease;
-    }
-    .nav-logo:hover {
-        transform: scale(1.1); /* Slight zoom on logo hover */
-    }
-
     @media (max-width: 768px) {
         .navbar-nav .nav-link {
-            padding: 8px; /* Further reduced padding on smaller screens */
+            padding: 6px 8px; /* Smaller padding for mobile */
         }
         .btn-submit {
-            padding: 8px 12px; /* Adjust button size for mobile */
+            padding: 6px 10px; /* Smaller padding for mobile */
+        }
+        .nav-logo {
+            max-height: 70px; /* Smaller logo height for mobile */
         }
     }
 </style>
