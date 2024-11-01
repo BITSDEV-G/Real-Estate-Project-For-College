@@ -1,0 +1,163 @@
+/* Global Styles */
+body {
+    font-family: 'Muli', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Soft gradient for a premium look */
+    margin: 0;
+    padding: 0;
+}
+
+/* Full Height Display */
+.registration-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 1000px; /* Perspective for 3D effect */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white overlay for depth */
+    border-radius: 15px; /* Rounded corners for the body */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Soft shadow around the body */
+}
+
+/* Registration Wrapper */
+.registration-wrapper {
+    width: 100%;
+    max-width: 450px; /* Adjust width for better aesthetics */
+    background-color: #ffffff; /* White background for the card */
+    border-radius: 15px; /* More rounded corners for premium look */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Deeper shadow for depth */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Animation on Hover */
+.registration-wrapper:hover {
+    transform: translateY(-10px) rotateX(5deg); /* Lift and slight tilt on hover */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35); /* Deeper shadow */
+}
+
+/* Registration Box */
+.registrationbox {
+    padding: 40px; /* Inner padding for the card */
+}
+
+/* User Image Section */
+.user-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Space below the image */
+}
+
+.user-image img {
+    width: 80px; /* Set a fixed width for the user image */
+    height: 80px; /* Set a fixed height for the user image */
+    border-radius: 50%; /* Circular image */
+    border: 3px solid #1a73e8; /* Blue border around the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+}
+
+/* Title and Subtitle */
+.registrationbox h1 {
+    font-size: 32px; /* Larger title for emphasis */
+    font-weight: bold;
+    color: #1a73e8; /* Vibrant blue color */
+    margin-bottom: 10px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.account-subtitle {
+    color: #666666; /* Dark gray subtitle */
+    font-size: 18px; /* Slightly larger subtitle */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px; /* Space between form elements */
+}
+
+/* Input Group Styles */
+.input-group {
+    display: flex; /* Flex for input and icon */
+    align-items: center;
+}
+
+/* Input Group Prepend */
+.input-group-prepend {
+    margin-right: 10px; /* Space between icon and input */
+}
+
+.input-group-text {
+    background-color: #1a73e8; /* Blue background for icon */
+    color: white; /* White icon color */
+    border: none;
+    border-radius: 5px 0 0 5px; /* Rounded left corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Form Control */
+.form-control {
+    height: 40px; /* Reduced input height */
+    border: 1px solid #1a73e8; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Inner padding for input */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    background: white; /* White background for input */
+}
+
+.form-control:focus {
+    border-color: #1a73e8; /* Blue focus border */
+    box-shadow: 0 0 5px rgba(26, 115, 232, 0.5); /* Glow effect */
+}
+
+/* Button Styles */
+.btn {
+    background-color: #1a73e8; /* Button background */
+    border: none;
+    color: #ffffff; /* White text */
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    width: 100%; /* Full width button */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px) scale(1.02); /* Slight lift and scaling on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+/* Already Have an Account Text */
+.already-have {
+    color: #666666; /* Dark gray text */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.already-have a {
+    color: #1a73e8; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.already-have a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 500px) {
+    .registration-wrapper {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    .form-control {
+        font-size: 14px; /* Smaller font for smaller screens */
+    }
+
+    .btn {
+        font-size: 14px; /* Smaller button font */
+    }
+}

@@ -1,0 +1,68 @@
+/* Header Styles */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.top-header {
+    padding: 10px 0;
+}
+
+.main-nav {
+    padding: 10px 0;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-nav.bg-white {
+    background-color: white; /* Keep the white background for contrast */
+}
+
+.navbar-brand img {
+    height: 50px; /* Consistent logo height */
+}
+
+.nav-link {
+    color: #333; /* Darker color for links */
+    padding: 15px 20px; /* More padding for a spacious feel */
+}
+
+.nav-link:hover {
+    color: #1a73e8; /* Highlight color on hover */
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+}
+
+.dropdown-item {
+    padding: 10px 20px; /* Padding for dropdown items */
+    color: #333; /* Dark color for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa; /* Light background on hover */
+}
+
+/* Top Contact */
+.top-contact a {
+    color: white; /* White text color for contact links */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.top-contact a:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #1a73e8; /* Primary button color */
+    border-radius: 5px; /* Rounded button */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
