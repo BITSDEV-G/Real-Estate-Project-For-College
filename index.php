@@ -62,32 +62,95 @@ include("config.php");
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-lg-12">
-                        <div class="text-white">
-                            <h1 class="mb-4"><span class="text-primary">Find</span><br>
-                                Your dream house</h1>
-                            <form method="post" action="propertygrid.php">
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-2">
-                                        <div class="form-group">
-                                            <select class="form-control" name="type">
-                                                <option value="">Select Type</option>
-												<option value="appartment">Appartment</option>
-												<option value="flat">Flat</option>
-												<option value="bunglow">Bunglow</option>
-												<option value="house">House</option>
-												<option value="villa">Villa</option>
-												<option value="office">Office</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-2">
-                                        <div class="form-group">
-                                            <select class="form-control" name="stype">
-                                                <option value="">Select Status</option>
-												<option value="rent">Rent</option>
-												<option value="sale">Sale</option>
-                                            </select>
-                                        </div>
+                    <div class="hero-section text-white d-flex align-items-center" style="background: url('your-hero-image.jpg') no-repeat center center/cover; height: 100vh;">
+    <div class="container text-center">
+        <h1 class="display-4 mb-4"><span class="text-primary">Find</span> Your Dream House</h1>
+        <p class="lead mb-5">Discover properties that suit your style and needs.</p>
+        <form method="post" action="propertygrid.php" class="p-4 rounded mx-auto" style="background-color: rgba(0, 31, 63, 0.8); width: 80%; max-width: 900px;">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="form-group">
+                        <select class="form-control custom-select" name="type" style="color: #013a63;">
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="flat">Flat</option>
+                            <option value="bungalow">Bungalow</option>
+                            <option value="house">House</option>
+                            <option value="villa">Villa</option>
+                            <option value="office">Office</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="form-group">
+                        <select class="form-control custom-select" name="stype" style="color: #013a63;">
+                            <option value="" disabled selected>Select Status</option>
+                            <option value="rent">Rent</option>
+                            <option value="sale">Sale</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="min-price" placeholder="Min Price (Ksh)" style="color: #013a63;">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="max-price" placeholder="Max Price (Ksh)" style="color: #013a63;">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" style="background-color: #014f86; border-color: #014f86;">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Hero Section Styling */
+    .hero-section {
+        position: relative;
+        color: #ffffff;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Form Control Styling */
+    .form-control {
+        border: 2px solid #014f86;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #0179b3;
+        box-shadow: 0 0 8px rgba(1, 79, 134, 0.5);
+    }
+
+    /* Button Styling */
+    .btn-primary:hover {
+        background-color: #0179b3;
+        border-color: #0179b3;
+    }
+
+    /* Text Primary Color */
+    .text-primary {
+        color: #00bfff !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .display-4 {
+            font-size: 2.5rem;
+        }
+    }
+</style>
+
                                     </div>
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
@@ -118,34 +181,27 @@ include("config.php");
                 </div>
                 <div class="text-box-one">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<i class="flaticon-rent text-primary flat-medium" aria-hidden="true"></i>
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Selling Service</a></h5>
-                                <p>Lacinia tempor tortor nibh. Et mattis cubilia suspendisse cras justo potenti.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<i class="flaticon-for-rent text-primary flat-medium" aria-hidden="true"></i>
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Rental Service</a></h5>
-                                <p>Lacinia tempor tortor nibh. Et mattis cubilia suspendisse cras justo potenti.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<i class="flaticon-list text-primary flat-medium" aria-hidden="true"></i>
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Property Listing</a></h5>
-                                <p>Lacinia tempor tortor nibh. Et mattis cubilia suspendisse cras justo potenti.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
-								<i class="flaticon-diagram text-primary flat-medium" aria-hidden="true"></i>
-                                <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Legal Investment</a></h5>
-                                <p>Lacinia tempor tortor nibh. Et mattis cubilia suspendisse cras justo potenti.</p>
-                            </div>
-                        </div>
+                    <div class="col-lg-3 col-md-6">
+    <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
+        <i class="flaticon-for-rent text-primary flat-medium" aria-hidden="true"></i>
+        <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Rental Services</a></h5>
+        <p>We offer reliable rental options to suit your budget and lifestyle, making it easier to find the perfect home for you.</p>
+    </div>
+</div>
+<div class="col-lg-3 col-md-6">
+    <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
+        <i class="flaticon-list text-primary flat-medium" aria-hidden="true"></i>
+        <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Property Listings</a></h5>
+        <p>Explore our curated list of properties available for sale and rent, with options tailored to meet your unique needs.</p>
+    </div>
+</div>
+<div class="col-lg-3 col-md-6">
+    <div class="p-4 text-center hover-bg-white hover-shadow rounded mb-4 transation-3s"> 
+        <i class="flaticon-diagram text-primary flat-medium" aria-hidden="true"></i>
+        <h5 class="text-secondary hover-text-primary py-3 m-0"><a href="#">Secure Investments</a></h5>
+        <p>Get professional advice on safe property investments in Kenya to help grow your portfolio with confidence.</p>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -227,28 +283,28 @@ include("config.php");
                         <div class="living-list pr-4">
                             <h3 class="pb-4 mb-3 text-white">Why Choose Us</h3>
                             <ul>
-                                <li class="mb-4 text-white d-flex"> 
-                                    <i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-                                    <div class="pl-2">
-                                        <h5 class="mb-3">Quality Living</h5>
-                                        <p>Experience a life of comfort and convenience in your new home. Our properties are located in prime areas with access to essential services and amenities.</p>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white d-flex"> 
-                                    <i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-                                    <div class="pl-2">
-                                        <h5 class="mb-3">Exceptional Properties</h5>
-                                        <p>We offer a wide range of houses and apartments tailored to meet your needs, from spacious family homes to chic urban flats.</p>
-                                    </div>
-                                </li>
-                                <li class="mb-4 text-white d-flex"> 
-                                    <i class="flaticon-seller flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-                                    <div class="pl-2">
-                                        <h5 class="mb-3">Professional Guidance</h5>
-                                        <p>Our experienced agents provide personalized support throughout your property journey, ensuring you find the perfect fit for your lifestyle.</p>
-                                    </div>
-                                </li>
-                            </ul>
+                            <li class="mb-4 text-white d-flex"> 
+                                <i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                <div class="pl-2">
+                                    <h5 class="mb-3">Quality Living</h5>
+                                    <p>Experience a life of comfort and convenience in your new home. Our properties are located in prime areas with access to essential services and amenities.</p>
+                                </div>
+                            </li>
+                            <li class="mb-4 text-white d-flex"> 
+                                <i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                <div class="pl-2">
+                                    <h5 class="mb-3">Exceptional Properties</h5>
+                                    <p>We offer a wide range of houses and apartments tailored to meet your needs, from spacious family homes to chic urban flats.</p>
+                                </div>
+                            </li>
+                            <li class="mb-4 text-white d-flex"> 
+                                <i class="flaticon-seller flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                <div class="pl-2">
+                                    <h5 class="mb-3">Professional Guidance</h5>
+                                    <p>Our experienced agents provide personalized support throughout your property journey, ensuring you find the perfect fit for your lifestyle.</p>
+                                </div>
+                            </li>
+                        </ul>
 
                         </div>
                     </div>
@@ -262,35 +318,35 @@ include("config.php");
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="text-secondary double-down-line text-center mb-5">How It Work</h2>
-                        </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="icon-thumb-one text-center mb-5">
-                            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">1</div>
-                            <div class="left-arrow"><i class="flaticon-investor flat-medium icon-primary" aria-hidden="true"></i></div>
-                            <h5 class="text-secondary mt-5 mb-4">Discussion</h5>
-                            <p>Nascetur cubilia sociosqu aliquet ut elit nascetur nullam duis tincidunt nisl non quisque vestibulum platea ornare ridiculus.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-thumb-one text-center mb-5">
-                            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">2</div>
-                            <div class="left-arrow"><i class="flaticon-search flat-medium icon-primary" aria-hidden="true"></i></div>
-                            <h5 class="text-secondary mt-5 mb-4">Files Review</h5>
-                            <p>Nascetur cubilia sociosqu aliquet ut elit nascetur nullam duis tincidunt nisl non quisque vestibulum platea ornare ridiculus.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="icon-thumb-one text-center mb-5">
-                            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">3</div>
-                            <div><i class="flaticon-handshake flat-medium icon-primary" aria-hidden="true"></i></div>
-                            <h5 class="text-secondary mt-5 mb-4">Acquire</h5>
-                            <p>Nascetur cubilia sociosqu aliquet ut elit nascetur nullam duis tincidunt nisl non quisque vestibulum platea ornare ridiculus.</p>
-                        </div>
-                    </div>
-                </div>
+                    <div class="col-lg-12">
+    <h2 class="text-secondary double-down-line text-center mb-5">How It Works</h2>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="icon-thumb-one text-center mb-5">
+            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">1</div>
+            <div class="left-arrow"><i class="flaticon-investor flat-medium icon-primary" aria-hidden="true"></i></div>
+            <h5 class="text-secondary mt-5 mb-4">Initial Consultation</h5>
+            <p>We start by understanding your property needs and preferences. Our experts will guide you through the initial stages, ensuring we’re on the same page about what you're looking for.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="icon-thumb-one text-center mb-5">
+            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">2</div>
+            <div class="left-arrow"><i class="flaticon-search flat-medium icon-primary" aria-hidden="true"></i></div>
+            <h5 class="text-secondary mt-5 mb-4">Document Review</h5>
+            <p>Our team assists with reviewing all the necessary documentation and legal paperwork, making sure everything is in place for a smooth transaction.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="icon-thumb-one text-center mb-5">
+            <div class="bg-primary text-white rounded-circle position-absolute z-index-9">3</div>
+            <div><i class="flaticon-handshake flat-medium icon-primary" aria-hidden="true"></i></div>
+            <h5 class="text-secondary mt-5 mb-4">Secure the Deal</h5>
+            <p>Once everything is approved, we finalize the deal, allowing you to acquire your property with confidence and ease. Welcome to your new home!</p>
+        </div>
+    </div>
+</div>
             </div>
         </div>
         
