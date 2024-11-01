@@ -1,31 +1,38 @@
 <?php 
 include("config.php");
-$error="";
-$msg="";
-if(isset($_POST['send']))
-{
-	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$phone=$_POST['phone'];
-	$subject=$_POST['subject'];
-	$message=$_POST['message'];
-	
-	if(!empty($name) && !empty($email) && !empty($phone) && !empty($subject) && !empty($message))
-	{
-		
-		$sql="INSERT INTO contact (name,email,phone,subject,message) VALUES ('$name','$email','$phone','$subject','$message')";
-		   $result=mysqli_query($con, $sql);
-		   if($result){
-			   $msg = "<p class='alert alert-success'>Message Send Successfully</p> ";
-		   }
-		   else{
-			   $error = "<p class='alert alert-warning'>Message Not Send Successfully</p> ";
-		   }
-	}else{
-		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
+session_start(); // Start the session
+
+// Remove the following check if you want to allow all users to access the contact page
+// if (!isset($_SESSION['username'])) {
+//     header("Location: login.php"); // Redirect to login page
+//     exit(); // Terminate the script after redirecting
+// }
+
+$error = "";
+$msg = "";
+if (isset($_POST['send'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    
+    if (!empty($name) && !empty($email) && !empty($phone) && !empty($subject) && !empty($message)) {
+        $sql = "INSERT INTO contact (name, email, phone, subject, message) VALUES ('$name', '$email', '$phone', '$subject', '$message')";
+        $result = mysqli_query($con, $sql);
+        if ($result) {
+            $msg = "<p class='alert alert-success'>Message Sent Successfully</p>";
+        } else {
+            $error = "<p class='alert alert-warning'>Message Not Sent Successfully</p>";
+            error_log("SQL Error: " . mysqli_error($con)); // Log SQL error for debugging
+        }
+    } else {
+        $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+    }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

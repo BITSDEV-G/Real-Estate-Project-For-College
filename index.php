@@ -228,27 +228,28 @@ include("config.php");
                             <h3 class="pb-4 mb-3 text-white">Why Choose Us</h3>
                             <ul>
                                 <li class="mb-4 text-white d-flex"> 
-									<i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
+                                    <i class="flaticon-reward flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                    <div class="pl-2">
+                                        <h5 class="mb-3">Quality Living</h5>
+                                        <p>Experience a life of comfort and convenience in your new home. Our properties are located in prime areas with access to essential services and amenities.</p>
+                                    </div>
                                 </li>
                                 <li class="mb-4 text-white d-flex"> 
-									<i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
+                                    <i class="flaticon-real-estate flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                    <div class="pl-2">
+                                        <h5 class="mb-3">Exceptional Properties</h5>
+                                        <p>We offer a wide range of houses and apartments tailored to meet your needs, from spacious family homes to chic urban flats.</p>
+                                    </div>
                                 </li>
                                 <li class="mb-4 text-white d-flex"> 
-									<i class="flaticon-seller flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
-									<div class="pl-2">
-										<h5 class="mb-3">Experience Quality</h5>
-										<p>Ad non vivamus Elementum eget fringilla venenatis quisque, maecenas adipiscing aliquet justo. Libero. Gravida. Sapien, dolor nostra sem. Rutrum conubia inceptos egestas dolor class.</p>
-									</div>
+                                    <i class="flaticon-seller flat-medium float-left d-table mr-4 text-primary" aria-hidden="true"></i>
+                                    <div class="pl-2">
+                                        <h5 class="mb-3">Professional Guidance</h5>
+                                        <p>Our experienced agents provide personalized support throughout your property journey, ensuring you find the perfect fit for your lifestyle.</p>
+                                    </div>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
