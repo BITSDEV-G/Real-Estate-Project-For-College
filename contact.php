@@ -2,12 +2,6 @@
 include("config.php");
 session_start(); // Start the session
 
-// Remove the following check if you want to allow all users to access the contact page
-// if (!isset($_SESSION['username'])) {
-//     header("Location: login.php"); // Redirect to login page
-//     exit(); // Terminate the script after redirecting
-// }
-
 $error = "";
 $msg = "";
 if (isset($_POST['send'])) {
@@ -31,7 +25,6 @@ if (isset($_POST['send'])) {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,173 +55,173 @@ if (isset($_POST['send'])) {
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<!-- Custom Styles -->
-<style>
-    body {
-        background-color: #001f3f; /* Dark blue background */
-        color: white; /* White text for contrast */
-    }
-    .btn-primary {
-        background-color: #007bff; /* Bootstrap primary button color */
-        border: none;
-    }
-    .alert {
-        border-radius: 5px; /* Rounded corners for alerts */
-    }
-    .breadcrumb-item a {
-        color: #007bff; /* Bootstrap primary link color */
-    }
-    .breadcrumb-item.active {
-        color: #ffffff; /* Active breadcrumb color */
-    }
-    .contact-info {
-        background-color: #0056b3; /* Darker blue for contact info */
-        padding: 20px;
-        border-radius: 8px; /* Rounded corners */
-    }
-    .contact-info h3 {
-        color: white;
-    }
-</style>
+    <title>Real-Estate</title>
 
-<!--	Title
-	=========================================================-->
-<title>Real Estate</title>
+    <style>
+        body {
+            font-family: 'Muli', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .banner-full-row {
+            background: url('images/breadcromb.jpg') no-repeat center center/cover;
+            padding: 60px 0;
+        }
+        .page-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .contact-info {
+            background-color: #003366; /* Dark Blue */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .contact-info ul li {
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .contact-info ul li i {
+            color: #ffffff;
+        }
+        .contact-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .contact-form textarea {
+            resize: none;
+        }
+        .contact-form button {
+            background-color: #003366; /* Dark Blue */
+            border: none;
+            padding: 10px 20px;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #00509E; /* Lighter Blue */
+        }
+        .form-control {
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #003366; /* Dark Blue */
+            box-shadow: 0 0 0 0.2rem rgba(0,51,102,.25);
+        }
+        footer {
+            background-color: #003366; /* Keep the footer original color */
+            color: #ffffff; /* Footer text color */
+        }
+    </style>
 </head>
 <body>
 
-<!-- 	Page Loader
-=============================================================
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
-
 <div id="page-wrapper">
     <div class="row"> 
-        <!--	Header start  -->
-		<?php include("include/header.php");?>
-        <!--	Header end  -->
+        <!-- Header -->
+        <?php include("include/header.php"); ?>
         
-        <!--	Banner -->
-        <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>Contact</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Contact</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
+        <!-- Banner -->
+        <div class="banner-full-row">
+            <!-- <div class="container"> -->
+                <!-- <h2 class="page-name text-center">Contact Us</h2> -->
             </div>
         </div>
-        <!--	Banner -->
-		
-        <!--	Contact Information -->
+        
+        <!-- Contact Information -->
         <div class="full-row">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 mb-5">
                         <div class="contact-info">
-                            <h3 class="mb-4 mt-4">Contacts</h3>
-							
+                            <h3>Contacts</h3>
                             <ul>
-                                <li class="d-flex mb-4"> <i class="fas fa-map-marker-alt text-white mr-2 font-13 mt-1"></i>
-                                    <div class="contact-address">
-                                        <h5 class="text-white">Address</h5>
-                                        <span class="text-secondary">Nairobi, Kenya</span> 
-										<span class="text-secondary">Kenya</span>
-										</div>
+                                <li class="d-flex mb-4"> 
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                    <div>
+                                        <h5>Address</h5>
+                                        <span>James Street West, Westlands 407, Kenya</span>
+                                    </div>
                                 </li>
-                                <li class="d-flex mb-4"> <i class="fas fa-phone-alt text-white mr-2 font-13 mt-1"></i>
-                                    <div class="contact-address">
-                                        <h5 class="text-white">Call Us</h5>
-                                        <span class="d-table text-secondary">+254 700 123 456</span>
-										<span class="text-secondary">+254 700 123 457</span>
-									</div>
+                                <li class="d-flex mb-4"> 
+                                    <i class="fas fa-phone-alt mr-2"></i>
+                                    <div>
+                                        <h5>Call Us</h5>
+                                        <span>0723 45 67 80</span>
+                                    </div>
                                 </li>
-                                <li class="d-flex mb-4"> <i class="fas fa-envelope text-white mr-2 font-13 mt-1"></i>
-                                    <div class="contact-address">
-                                        <h5 class="text-white">Email Address</h5>
-										<span class="d-table text-secondary">helpline@homex.co.ke</span>
-										<span class="text-secondary">info@dev.co.ke</span>
-										</div>
+                                <li class="d-flex mb-4"> 
+                                    <i class="fas fa-envelope mr-2"></i>
+                                    <div>
+                                        <h5>Email Address</h5>
+                                        <span>helpline@gmail.com.com</span>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-					<div class="col-lg-1"></div>
-                    <div class="col-md-12 col-lg-7">
-						<div class="container">
-                        <div class="row">
-							<div class="col-lg-12">
-								<h2 class="text-secondary double-down-line text-center mb-5">Get In Touch</h2>
-								<?php echo $msg; ?><?php echo $error; ?>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<form class="w-100" action="#" method="post">
-									<div class="row">
-										<div class="row mb-4">
-											<div class="form-group col-lg-6">
-												<input type="text"  name="name" class="form-control" placeholder="Your Name*" required>
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="email" name="email" class="form-control" placeholder="Email Address*" required>
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="text" name="phone" class="form-control" placeholder="Phone" maxlength="10" required>
-											</div>
-											<div class="form-group col-lg-6">
-												<input type="text" name="subject" class="form-control" placeholder="Subject*" required>
-											</div>
-											<div class="col-lg-12">
-												<div class="form-group">
-													<textarea name="message" class="form-control" rows="5" placeholder="Type Comments..." required></textarea>
-												</div>
-											</div>
-										</div>
-										<button type="submit" value="send message" name="send" class="btn btn-primary">Send Message</button>
-									</div>
-								</form>
-							</div>
-						</div>
-						</div>
-					</div>
+                    
+                    <div class="col-lg-8">
+                        <div class="contact-form">
+                            <h2 class="text-secondary text-center mb-4">Get In Touch</h2>
+                            <?php echo $msg; ?><?php echo $error; ?>
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6 form-group">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name*" required>
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <input type="email" name="email" class="form-control" placeholder="Email Address*" required>
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <input type="text" name="phone" class="form-control" placeholder="Phone*" maxlength="10" required>
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <input type="text" name="subject" class="form-control" placeholder="Subject*" required>
+                                    </div>
+                                    <div class="col-lg-12 form-group">
+                                        <textarea name="message" class="form-control" rows="5" placeholder="Type Comments..." required></textarea>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="submit" value="send message" name="send" class="btn btn-primary">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--	Contact Information -->
+        <!-- Contact Information -->
         
-        <!--	Map -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1263923447026!2d36.82194631476951!3d-1.2920655353731674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11a4e13095b1%3A0x82851d06693bc6ec!2sKenya%20National%20Museum!5e0!3m2!1sen!2ske!4v1667281951648!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        <!--	Map -->
+        <!-- Map -->
+        <div class="container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29921.88989279091!2d72.89392697798161!3d20.373147326844283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0d1d69db97345%3A0x8bc4433aecadadfd!2sROFEL%20ARTS%20%26%20COMMERCE%20COLLEGE!5e0!3m2!1sen!2sin!4v1585740130321!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <!-- Map -->
         
-        <!--	Footer -->
-		<?php include("include/footer.php");?>
-        <!--	Footer -->
+        <!-- Footer -->
+        <?php include("include/footer.php"); ?>
+        <!-- Footer -->
+        
+        <!-- Scroll to top --> 
+        <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
     </div>
 </div>
+<!-- Wrapper End --> 
 
-<!--	Script Link
-	========================================================-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap-slider.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/layerslider.js"></script>
-<script src="js/custom.js"></script>
+<!-- JS Links --> 
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/custom.js"></script>  
 
 </body>
 </html>

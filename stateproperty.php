@@ -40,7 +40,7 @@ include("config.php");
 
 <!--	Title
 	=========================================================-->
-<title>Homex - Real Estate Template</title>
+<title>Real Estate </title>
 </head>
 <body>
 

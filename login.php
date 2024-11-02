@@ -45,7 +45,7 @@ if(isset($_REQUEST['login']))
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Title -->
-    <title>Homex - Real Estate Login</title>
+    <title>Real Estate Login</title>
 
     <style>
         body {

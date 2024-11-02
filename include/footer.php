@@ -78,7 +78,7 @@
 
 <style>
   footer {
-    background-color: darkblue; /* Dark blue background for the footer */
+    background-color: #003366; /* Dark blue background */
 }
 
 footer .text-white {

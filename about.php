@@ -3,6 +3,7 @@ ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 session_start();
 include("config.php");								
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,19 +35,28 @@ include("config.php");
 <link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
+<!-- Custom CSS for 3D Effect -->
+<style>
+    .about-content {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #333;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        margin-bottom: 20px;
+    }
+</style>
+
 <!-- Title -->
 <title>Real-Estate</title>
 </head>
 <body>
-
-<!--	Page Loader -->
- <!-- <div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>  -->
 
 <div id="page-wrapper">
     <div class="row"> 
@@ -57,15 +67,15 @@ include("config.php");
         <!--	Banner   --->
         <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>About US</b></h2>
-                    </div>
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb" class="float-left float-md-right">
-                            <ol class="breadcrumb bg-transparent m-0 p-0">
-                                <li class="breadcrumb-item text-white"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">About Us</li>
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-md-6"> -->
+                        <!-- <h2 class="page-name float-left text-white text-uppercase mt-1 mb-0"><b>About US</b></h2> -->
+                    <!-- </div> -->
+                    <!-- <div class="col-md-6"> -->
+                        <!-- <nav aria-label="breadcrumb" class="float-left float-md-right"> -->
+                            <!-- <ol class="breadcrumb bg-transparent m-0 p-0"> -->
+                                <!-- <li class="breadcrumb-item text-white"><a href="#">Home</a></li> -->
+                                <!-- <li class="breadcrumb-item active">About Us</li> -->
                             </ol>
                         </nav>
                     </div>
@@ -73,21 +83,19 @@ include("config.php");
             </div>
         </div>
          <!--	Banner   --->
-		 
+
         <!--	About Our Company -->
         <div class="full-row" style="padding-top: 100px;"> <!-- Added padding-top -->
         <div class="container">
                 
-				
-				<?php 
-					
-					$query=mysqli_query($con,"SELECT * FROM about");
-					while($row=mysqli_fetch_array($query))
-					{
-				?>
+			<?php 
+				$query=mysqli_query($con,"SELECT * FROM about");
+				while($row=mysqli_fetch_array($query))
+				{
+			?>
 				<div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <h3 class="double-down-line-left text-secondary position-relative pb-4 mb-4"><?php echo $row['1'];?></h3>
+                        <h3 class="about-title"><?php echo $row['1'];?></h3>
                     </div>
                 </div>
                 <div class="row about-company">
@@ -97,12 +105,12 @@ include("config.php");
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-5 mt-5">
-                        <div class="about-img"> <img src="admin/upload/<?php echo $row['3'];?>" alt="about image"> </div>
+                        <div class="about-img">
+                            <img src="admin/upload/<?php echo $row['3'];?>" class="img-fluid" alt="about image" style="max-width: 100%; height: auto;">
+                        </div>
                     </div>
                 </div>
-				
-				<?php } ?>
-				
+			<?php } ?>
             </div>
         </div>
         <!--	About Our Company -->        

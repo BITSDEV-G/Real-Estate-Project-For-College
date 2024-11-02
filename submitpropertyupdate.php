@@ -121,7 +121,7 @@ if(isset($_POST['add']))
 
 <!--	Title
 	=========================================================-->
-<title>Homex - Real Estate Template</title>
+<title>Real Estate</title>
 </head>
 <body>
 
@@ -144,7 +144,7 @@ if(isset($_POST['add']))
         <!--	Header end  -->
         
         <!--	Banner   --->
-        <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
+        <!-- <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -160,7 +160,7 @@ if(isset($_POST['add']))
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
          <!--	Banner   --->
 		 
 		 

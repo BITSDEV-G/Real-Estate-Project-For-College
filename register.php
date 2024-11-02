@@ -53,7 +53,7 @@ if (isset($_REQUEST['reg'])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- Title -->
-    <title>Homex - Real Estate Registration</title>
+    <title>Real Estate Registration</title>
 
     <style>
         body {

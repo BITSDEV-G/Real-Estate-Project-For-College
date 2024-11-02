@@ -40,7 +40,7 @@ if (isset($_REQUEST['calc'])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
 
-    <title>Homex - Real Estate EMI Calculator</title>
+    <title>Real Estate EMI Calculator</title>
 
     <style>
         body {
