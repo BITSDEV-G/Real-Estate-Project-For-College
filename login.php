@@ -8,22 +8,19 @@ if(isset($_REQUEST['login']))
 	$email=$_REQUEST['email'];
 	$pass=$_REQUEST['pass'];
 	
-	
 	if(!empty($email) && !empty($pass))
 	{
-		$sql = "SELECT * FROM user where uemail='$email' && upass='$pass'";
+		$sql = "SELECT * FROM user WHERE uemail='$email' AND upass='$pass'";
 		$result=mysqli_query($con, $sql);
 		$row=mysqli_fetch_array($result);
-		   if($row){
-			   
-				$_SESSION['uid']=$row['uid'];
-				$_SESSION['uemail']=$email;
-				header("location:index.php");
-				
-		   }
-		   else{
-			   $error = "<p class='alert alert-warning'>Login Not Successfully</p> ";
-		   }
+		if($row){
+			$_SESSION['uid']=$row['uid'];
+			$_SESSION['uemail']=$email;
+			header("location:index.php");
+		}
+		else{
+			$error = "<p class='alert alert-warning'>Login Not Successfully</p> ";
+		}
 	}else{
 		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
 	}
@@ -33,58 +30,98 @@ if(isset($_REQUEST['login']))
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-<!-- Meta Tags -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="images/favicon.ico">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
 
-<!--	Fonts
-	========================================================-->
-<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,500,600,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+    <!-- CSS Link -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<!--	Css Link
-	========================================================-->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap-slider.css">
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="css/layerslider.css">
-<link rel="stylesheet" type="text/css" href="css/color.css">
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="fonts/flaticon/flaticon.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- Title -->
+    <title>Homex - Real Estate Login</title>
 
-<!--	Title
-	=========================================================-->
-<title>Real-Estate-project</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .page-wrappers {
+            padding: 60px 0; /* Adjusted padding to avoid header overlap */
+        }
+
+        .loginbox {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 20px;
+            box-shadow: 20px 20px 60px #d1d1d1, -20px -20px 60px #ffffff;
+            padding: 40px;
+        }
+
+        .login-wrapper h1 {
+            color: #003366; /* Dark blue */
+        }
+
+        .form-control {
+            border: 1px solid #003366; /* Dark blue border */
+            border-radius: 10px;
+            box-shadow: inset 5px 5px 10px #d1d1d1, inset -5px -5px 10px #ffffff;
+        }
+
+        .form-control:focus {
+            border-color: #0066cc; /* Lighter blue on focus */
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #003366; /* Dark blue */
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #00509e; /* Lighter blue on hover */
+        }
+
+        .dont-have a {
+            color: #003366; /* Dark blue for links */
+        }
+
+        .dont-have a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item a {
+            color: #ffffff; /* White */
+        }
+
+        .breadcrumb-item.active {
+            color: #ffffff; /* White */
+        }
+
+        .banner-full-row {
+            padding: 60px 0;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
 
-	<!-- Page Loader
-============================================================= -->
-<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>
- 
-
-
 <div id="page-wrapper">
-    <div class="row"> 
-        <!--	Header start  -->
-		<?php include("include/header.php");?>
-        <!--	Header end  -->
+    <div class="row">
+        <!-- Header start -->
+        <?php include("include/header.php"); ?>
+        <!-- Header end -->
         
-        <!--	Banner   --->
+        <!-- Banner -->
         <div class="banner-full-row page-banner" style="background-image:url('images/breadcromb.jpg');">
             <div class="container">
                 <div class="row">
@@ -102,61 +139,39 @@ if(isset($_REQUEST['login']))
                 </div>
             </div>
         </div>
-         <!--	Banner   --->
-		 
-		 
-		 
+
         <div class="page-wrappers login-body full-row bg-gray">
             <div class="login-wrapper">
-            	<div class="container">
-                	<div class="loginbox">
+                <div class="container">
+                    <div class="loginbox">
                         <div class="login-right">
-							<div class="login-right-wrap">
-								<h1>Secure Login</h1>
-								<p class="account-subtitle">Welcome to Your Dashboard</p>
-								<?php echo $error; ?><?php echo $msg; ?>
-								<!-- Form -->
-								<form method="post">
-									<div class="form-group">
-										<input type="email"  name="email" class="form-control" placeholder="Your Email*">
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass"  class="form-control" placeholder="Your Password">
-									</div>
-									
-										<button class="btn btn-primary" name="login" value="Login" type="submit">Login</button>
-									
-								</form>
-								
-								<!-- <div class="login-or">
-									<span class="or-line"></span>
-									<span class="span-or">or</span>
-								</div> -->
-								
-								<!-- Social Login -->
-								<!-- <div class="social-login">
-									<span>Login with</span>
-									<a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-									<a href="#" class="google"><i class="fab fa-google"></i></a>
-									<a href="#" class="facebook"><i class="fab fa-twitter"></i></a>
-									<a href="#" class="google"><i class="fab fa-instagram"></i></a>
-								</div> -->
-								<!-- /Social Login -->
-								
-								<div class="text-center dont-have">Don't have an account? <a href="register.php">Register</a></div>
-								
-							</div>
+                            <div class="login-right-wrap">
+                                <h1>Secure Login</h1>
+                                <p class="account-subtitle">Welcome Back</p>
+                                <?php echo $error; ?><?php echo $msg; ?>
+                                <!-- Form -->
+                                <form method="post">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email*" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="pass" class="form-control" placeholder="Your Password*" required>
+                                    </div>
+                                    
+                                    <button class="btn btn-primary" name="login" value="Login" type="submit">Login</button>
+                                </form>
+                                
+                                <div class="text-center dont-have">Don't have an account? <a href="register.php">Register</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-	<!--	login  -->
-        
-        
-        <!--	Footer   start-->
-		<?php include("include/footer.php");?>
-		<!--	Footer   start-->
+
+        <!-- Footer start -->
+        <?php include("include/footer.php"); ?>
+        <!-- Footer end -->
         
         <!-- Scroll to top --> 
         <a href="#" class="bg-secondary text-white hover-text-secondary" id="scroll"><i class="fas fa-angle-up"></i></a> 
@@ -165,22 +180,11 @@ if(isset($_REQUEST['login']))
 </div>
 <!-- Wrapper End --> 
 
-<!--	Js Link
+<!-- Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 
-<!--jQuery Layer Slider --> 
-<script src="js/greensock.js"></script> 
-<script src="js/layerslider.transitions.js"></script> 
-<script src="js/layerslider.kreaturamedia.jquery.js"></script> 
-<!--jQuery Layer Slider --> 
 <script src="js/popper.min.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
-<script src="js/owl.carousel.min.js"></script> 
-<script src="js/tmpl.js"></script> 
-<script src="js/jquery.dependClass-0.1.js"></script> 
-<script src="js/draggable-0.1.js"></script> 
-<script src="js/jquery.slider.js"></script> 
-<script src="js/wow.js"></script> 
 <script src="js/custom.js"></script>
 </body>
 </html>

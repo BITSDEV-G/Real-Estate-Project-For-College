@@ -92,6 +92,20 @@ footer .hover-text-darkblue {
 footer .hover-text-darkblue:hover {
     color: darkblue !important; /* Change link color to dark blue on hover */
 }
+.footer {
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
+    padding: 20px 0; /* Padding for the footer */
+}
+
+.footer a {
+    color: white; /* White for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
 
 /* Optional: Style for the copyright and line menu */
 .copyright {

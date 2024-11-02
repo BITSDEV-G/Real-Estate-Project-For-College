@@ -37,18 +37,26 @@ include("config.php");
 
 <!--	Title
 	=========================================================-->
-<title>Homex - Real Estate Template</title>
+<title>Real Estate</title>
 </head>
 <body>
 
-<!--	Page Loader  -->
-<!--<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
-	<div class="d-flex justify-content-center y-middle position-relative">
-	  <div class="spinner-border" role="status">
-		<span class="sr-only">Loading...</span>
-	  </div>
-	</div>
-</div>  -->
+<div class="page-loader position-fixed z-index-9999 w-100 bg-white vh-100">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="loader-container text-center">
+            <div class="cube-loader">
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+                <div class="cube"></div>
+            </div>
+            <p class="loading-text mt-3">Loading, please wait...</p>
+        </div>
+    </div>
+</div>
+
+
+
 <!--	Page Loader  -->
 
 <div id="page-wrapper">
@@ -136,6 +144,82 @@ include("config.php");
                                         .btn-primary:hover {
                                             background-color: #0179b3;
                                             border-color: #0179b3;
+                                        }
+                                        .page-loader {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            background-color: rgba(255, 255, 255, 0.8);
+                                            transition: opacity 0.3s ease;
+                                        }
+
+                                        .cube-loader {
+                                            width: 80px;
+                                            height: 80px;
+                                            position: relative;
+                                            transform-style: preserve-3d;
+                                            animation: rotate 2s infinite linear;
+                                        }
+
+                                        .cube {
+                                            position: absolute;
+                                            width: 20px;
+                                            height: 20px;
+                                            background-color: #003366; /* Dark blue */
+                                            opacity: 0.8;
+                                            border-radius: 5px;
+                                            animation: bounce 1s infinite alternate;
+                                        }
+
+                                        .cube:nth-child(1) {
+                                            transform: translateZ(40px);
+                                            animation-delay: 0s;
+                                        }
+                                        .cube:nth-child(2) {
+                                            transform: rotateY(90deg) translateZ(40px);
+                                            animation-delay: 0.2s;
+                                        }
+                                        .cube:nth-child(3) {
+                                            transform: rotateY(180deg) translateZ(40px);
+                                            animation-delay: 0.2s;
+                                        }
+                                        .cube:nth-child(4) {
+                                            transform: rotateY(270deg) translateZ(40px);
+                                            animation-delay: 0.2s;
+                                        }
+
+                                        @keyframes rotate {
+                                            from {
+                                                transform: rotateY(0deg);
+                                            }
+                                            to {
+                                                transform: rotateY(360deg);
+                                            }
+                                        }
+
+                                        @keyframes bounce {
+                                            from {
+                                                transform: translateY(0);
+                                            }
+                                            to {
+                                                transform: translateY(-20px);
+                                            }
+                                        }
+
+                                        .loading-text {
+                                            font-size: 1.5rem;
+                                            color: #003366; /* Dark blue */
+                                            font-weight: bold;
+                                            animation: fadeIn 0.5s ease-in-out;
+                                        }
+
+                                        @keyframes fadeIn {
+                                            from {
+                                                opacity: 0;
+                                            }
+                                            to {
+                                                opacity: 1;
+                                            }
                                         }
 
                                         /* Text Primary Color */
@@ -545,6 +629,7 @@ $(document).ready(function(){
 </div>
 <!-- Wrapper End --> 
 
+</script>
 <!--	Js Link
 ============================================================--> 
 <script src="js/jquery.min.js"></script> 

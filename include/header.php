@@ -26,7 +26,7 @@
                                 <?php if (isset($_SESSION['uemail'])) { ?>
                                     <a href="logout.php" class="text-white small-text">Logout</a> <!-- Smaller text -->
                                 <?php } else { ?>
-                                    <a href="login.php" class="text-white small-text">SignUp</a> <!-- Smaller text -->
+                                    <a href="login.php" class="text-white small-text">Login</a>
                                 <?php } ?>
                             </li>
                         </ul>
