@@ -231,19 +231,19 @@ label.radios {
 	top: 5px;
 }
 .color-box li.default {
-	background-color: darkblue !important
+	background-color: rgb(0, 125, 249)
 }
 .color-box li.default:before {
 	background: #0d1432;
 }
 .color-box li.color_2 {
-	background-color: #3851ff
+	background-color:rgb(0, 125, 249) #3851ff
 }
 .color-box li.color_2:before {
 	background: #0d1432;
 }
 .color-box li.color_3 {
-	background-color: darkblue !important
+	background-color: rgb(0, 125, 249)
 }
 .color-box li.color_3:before {
 	background: #0d1432;
@@ -885,7 +885,7 @@ button, button:focus {
 	left: -50px;
 	height: 110px;
 	width: 115%;
-	background-color: darkblue !important;
+	background-color: rgb(0, 125, 249);
 	top: 56%;
 	transform: rotate(-15deg);
 	z-index: 9;
@@ -1934,7 +1934,7 @@ sup {
 }
 .dashboard-panel .success {
 	border-left: 5px solid;
-	border-left-color: darkblue !important;
+	border-left-color: rgb(0, 125, 249);
 	border-radius: 0
 }
 .dashboard-panel .success.alert {

@@ -5,7 +5,7 @@ Theme Color All Codes Variable
 	 --theme-ordinary-color: #74777b;  /* theme ordinay font color ok*/
 }
 :root {
-	 --theme-primary-color: darkblue !important;  /* theme primary color ok*/
+	 --theme-primary-color: rgb(0, 125, 249);  /* theme primary color ok*/
 }
 :root {
 	 --theme-secondary-color: #0d1432;  /* theme secondary color ok*/
