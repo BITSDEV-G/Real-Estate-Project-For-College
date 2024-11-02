@@ -146,9 +146,39 @@ include("config.php");
                                         .text-dark-blue {
                                             color: #002366;
                                         }
+                                        .full-row {
+                                            padding: 60px 0;
+                                            position: relative;
+                                        }
+
+                                        .count {
+                                            border: 2px solid transparent; /* Add border for hover effect */
+                                            transition: border 0.3s, transform 0.3s;
+                                        }
+
+                                        .count:hover {
+                                            border: 2px solid rgba(255, 255, 255, 0.5); /* Change border color on hover */
+                                            transform: scale(1.05); /* Slightly enlarge the card on hover */
+                                        }
+
+                                        .count-num {
+                                            font-size: 40px; /* Make the count number larger */
+                                            font-weight: bold;
+                                            transition: color 0.3s;
+                                        }
+
+                                        .count-num.text-primary {
+                                            color: #002366; /* Use Bootstrap's primary color */
+                                        }
+
+                                        .text-white {
+                                            font-size: 18px; /* Increase font size for better readability */
+                                            margin-top: 10px; /* Add margin for spacing */
+                                        }
+
 
                                         .hover-text-primary:hover {
-                                            color: #0056b3; /* Dark blue for hover effect */
+                                            color: #002366; /* Dark blue for hover effect */
                                         }
 
                                         .card {
@@ -174,13 +204,50 @@ include("config.php");
                                             transform: translateY(-5px); /* Lift effect on hover */
                                             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
                                         }
+                                        .testimonial-card {
+                                            transition: transform 0.3s;
+                                            border: none;
+                                        }
+
+                                        .testimonial-card:hover {
+                                            transform: translateY(-5px);
+                                        }
+
+                                        .testimonial-card .card-body {
+                                            border-radius: 10px 10px 0 0;
+                                        }
+
+                                        .testimonial-card .card-footer {
+                                            border-top: 1px solid #dee2e6;
+                                            border-radius: 0 0 10px 10px;
+                                        }
+
 
                                         </style>
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5F1It4M/ocq1D1vS13H/4mFoP+1W5mRZ8E8P" crossorigin="anonymous">
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5F1It4M/ocq1D1vS13H/4mFoP+1W5mRZ8E8P" crossorigin="anonymous">
                                         <!-- Include Font Awesome CDN in the head of your HTML -->
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5F1It4M/ocq1D1vS13H/4mFoP+1W5mRZ8E8P" crossorigin="anonymous">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
+<script>
+$(document).ready(function(){
+    $(".recent-review").owlCarousel({
+        items: 1,
+        dots: true,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true
+    });
+});
+</script>
                                         /* Responsive Design */
                                         @media (max-width: 768px) {
                                             .display-4 {
@@ -336,7 +403,7 @@ include("config.php");
     </div>
 </div>
 		<!-- How It Works -->
-<div class="full-row py-5">
+<div class="full-row py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center mb-5">
@@ -345,216 +412,126 @@ include("config.php");
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="icon-thumb-one text-center mb-5 position-relative">
-                    <div class="bg-primary text-white rounded-circle position-absolute" style="width: 60px; height: 60px; left: 50%; top: -30px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">1</div>
+                <div class="icon-thumb-one text-center mb-5">
+                    <div class="bg-dark text-white rounded-circle" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">1</div>
                     <div class="icon mb-3">
-                        <i class="fas fa-user-check fa-3x text-primary"></i>
+                        <i class="fas fa-user-check fa-3x text-dark"></i>
                     </div>
-                    <h5 class="text-primary mt-4 mb-3">Initial Consultation</h5>
+                    <h5 class="text-dark mt-4 mb-3">Initial Consultation</h5>
                     <p class="text-dark">We start by understanding your property needs and preferences. Our experts will guide you through the initial stages, ensuring we’re on the same page about what you're looking for.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="icon-thumb-one text-center mb-5 position-relative">
-                    <div class="bg-primary text-white rounded-circle position-absolute" style="width: 60px; height: 60px; left: 50%; top: -30px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">2</div>
+                <div class="icon-thumb-one text-center mb-5">
+                    <div class="bg-dark text-white rounded-circle" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">2</div>
                     <div class="icon mb-3">
-                        <i class="fas fa-file-alt fa-3x text-primary"></i>
+                        <i class="fas fa-file-alt fa-3x text-dark"></i>
                     </div>
-                    <h5 class="text-primary mt-4 mb-3">Document Review</h5>
+                    <h5 class="text-dark mt-4 mb-3">Document Review</h5>
                     <p class="text-dark">Our team assists with reviewing all the necessary documentation and legal paperwork, making sure everything is in place for a smooth transaction.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="icon-thumb-one text-center mb-5 position-relative">
-                    <div class="bg-primary text-white rounded-circle position-absolute" style="width: 60px; height: 60px; left: 50%; top: -30px; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">3</div>
+                <div class="icon-thumb-one text-center mb-5">
+                    <div class="bg-dark text-white rounded-circle" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">3</div>
                     <div class="icon mb-3">
-                        <i class="fas fa-handshake fa-3x text-primary"></i>
+                        <i class="fas fa-handshake fa-3x text-dark"></i>
                     </div>
-                    <h5 class="text-primary mt-4 mb-3">Secure the Deal</h5>
+                    <h5 class="text-dark mt-4 mb-3">Secure the Deal</h5>
                     <p class="text-dark">Once everything is approved, we finalize the deal, allowing you to acquire your property with confidence and ease. Welcome to your new home!</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-        <!--	Achievement
-        ============================================================-->
-        <div class="full-row overlay-secondary" style="background-image: url('images/counterbg.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-            <div class="container">
-                <div class="fact-counter">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="count wow text-center  mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
-								<?php
-										$query=mysqli_query($con,"SELECT count(pid) FROM property");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php 
-												$total = $row[0];
-												echo $total;?>">0</div>
-								<?php } ?>
-                                <div class="text-white h5">Property Available</div>
-                            </div>
-                        </div>
-						<div class="col-md-3">
-                            <div class="count wow text-center  mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
-								<?php
-										$query=mysqli_query($con,"SELECT count(pid) FROM property where stype='sale'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php 
-												$total = $row[0];
-												echo $total;?>">0</div>
-								<?php } ?>
-                                <div class="text-white h5">Sale Property Available</div>
-                            </div>
-                        </div>
-						<div class="col-md-3">
-                            <div class="count wow text-center  mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-house flat-large text-white" aria-hidden="true"></i>
-								<?php
-										$query=mysqli_query($con,"SELECT count(pid) FROM property where stype='rent'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php 
-												$total = $row[0];
-												echo $total;?>">0</div>
-								<?php } ?>
-                                <div class="text-white h5">Rent Property Available</div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="count wow text-center  mb-sm-50" data-wow-duration="300ms"> <i class="flaticon-man flat-large text-white" aria-hidden="true"></i>
-                                <?php
-										$query=mysqli_query($con,"SELECT count(uid) FROM user");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php 
-												$total = $row[0];
-												echo $total;?>">0</div>
-								<?php } ?>
-                                <div class="text-white h5">Registered Users</div>
-                            </div>
-                        </div>
+</div>
+       <!-- Achievement
+============================================================ -->
+<div class="full-row overlay-secondary" style="background-image: url('images/counterbg.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; opacity: 0.9;">
+    <div class="container">
+        <div class="fact-counter">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
+                        <i class="fas fa-home flat-large text-white"></i>
+                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php
+                            $query=mysqli_query($con,"SELECT count(pid) FROM property");
+                            $row=mysqli_fetch_array($query);
+                            echo $row[0]; ?>">0</div>
+                        <div class="text-white h5">Property Available</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
+                        <i class="fas fa-tags flat-large text-white"></i>
+                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php
+                            $query=mysqli_query($con,"SELECT count(pid) FROM property WHERE stype='sale'");
+                            $row=mysqli_fetch_array($query);
+                            echo $row[0]; ?>">0</div>
+                        <div class="text-white h5">Sale Properties Available</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
+                        <i class="fas fa-door-open flat-large text-white"></i>
+                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php
+                            $query=mysqli_query($con,"SELECT count(pid) FROM property WHERE stype='rent'");
+                            $row=mysqli_fetch_array($query);
+                            echo $row[0]; ?>">0</div>
+                        <div class="text-white h5">Rent Properties Available</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count wow text-center mb-sm-50" data-wow-duration="300ms">
+                        <i class="fas fa-users flat-large text-white"></i>
+                        <div class="count-num text-primary my-4" data-speed="3000" data-stop="<?php
+                            $query=mysqli_query($con,"SELECT count(uid) FROM user");
+                            $row=mysqli_fetch_array($query);
+                            echo $row[0]; ?>">0</div>
+                        <div class="text-white h5">Registered Users</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!--	Popular Place -->
-        <div class="full-row bg-gray">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="text-secondary double-down-line text-center mb-5">Popular Places</h2></div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/1.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-									<?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where state='gujarat'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/2.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-									<?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where state='mumbai'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/3.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-                                    <?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where state='banglore'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3 pb-1">
-                            <div class="overflow-hidden position-relative overlay-secondary hover-zoomer mx-n13 z-index-9"> <img src="images/thumbnail4/4.jpg" alt="">
-                                <div class="text-white xy-center z-index-9 position-absolute text-center w-100">
-                                    <?php
-										$query=mysqli_query($con,"SELECT count(state), property.* FROM property where state='rajasthan'");
-											while($row=mysqli_fetch_array($query))
-												{
-										?>
-                                    <h4 class="hover-text-primary text-capitalize"><a href="stateproperty.php?id=<?php echo $row['17']?>"><?php echo $row['state'];?></a></h4>
-                                    <span><?php 
-												$total = $row[0];
-												echo $total;?> Properties Listed</span> </div>
-									<?php } ?>
-                            </div>
+<!-- Testimonial Section -->
+<div class="full-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-sidebar p-4">
+                    <div class="mb-3 col-lg-12">
+                        <h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Testimonials</h4>
+                        <div class="recent-review owl-carousel owl-dots-gray owl-dots-hover-primary">
+                            <?php
+                            // Fetch testimonials from the database
+                            $query = mysqli_query($con, "SELECT feedback.*, user.uname, user.utype FROM feedback INNER JOIN user ON feedback.uid = user.uid WHERE feedback.status = '1'");
+                            while ($row = mysqli_fetch_array($query)) {
+                                // Escape the feedback content
+                                $feedback_content = isset($row['fdescription']) ? htmlspecialchars($row['fdescription']) : 'No feedback available.';
+                            ?>
+                                <div class="card testimonial-card p-4 bg-white shadow-sm rounded">
+                                    <div class="card-body">
+                                        <p class="text-muted"><i class="fas fa-quote-left mr-2"></i><?php echo $feedback_content; ?> <i class="fas fa-quote-right mr-2"></i></p>
+                                    </div>
+                                    <div class="card-footer text-muted d-flex justify-content-between align-items-center">
+                                        <span class="text-primary font-weight-bold d-block text-capitalize"><?php echo htmlspecialchars($row['uname']); ?></span>
+                                        <span class="text-secondary text-capitalize"><?php echo htmlspecialchars($row['utype']); ?></span>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--	Popular Places -->
-		
-		<!--	Testonomial -->
-		<div class="full-row">
-            <div class="container">
-                <div class="row">
-					<div class="col-lg-12">
-						<div class="content-sidebar p-4">
-							<div class="mb-3 col-lg-12">
-								<h4 class="double-down-line-left text-secondary position-relative pb-4 mb-4">Testimonial</h4>
-									<div class="recent-review owl-carousel owl-dots-gray owl-dots-hover-primary">
-									
-										<?php
-													
-												$query=mysqli_query($con,"select feedback.*, user.* from feedback,user where feedback.uid=user.uid and feedback.status='1'");
-												while($row=mysqli_fetch_array($query))
-													{
-										?>
-										<div class="item">
-											<div class="p-4 bg-primary down-angle-white position-relative">
-												<p class="text-white"><i class="fas fa-quote-left mr-2 text-white"></i><?php echo $row['2']; ?>. <i class="fas fa-quote-right mr-2 text-white"></i></p>
-											</div>
-											<div class="p-2 mt-4">
-												<span class="text-primary d-table text-capitalize"><?php echo $row['uname']; ?></span> <span class="text-capitalize"><?php echo $row['utype']; ?></span>
-											</div>
-										</div>
-										<?php }  ?>
-										
-									</div>
-							</div>
-						 </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--	Testonomial -->
-		
+    </div>
+</div>
+<!-- End Testimonial Section -->
+
+
 		
         <!--	Footer   start-->
 		<?php include("include/footer.php");?>

@@ -231,7 +231,7 @@ label.radios {
 	top: 5px;
 }
 .color-box li.default {
-	background-color: #17c788
+	background-color: darkblue !important
 }
 .color-box li.default:before {
 	background: #0d1432;
@@ -243,7 +243,7 @@ label.radios {
 	background: #0d1432;
 }
 .color-box li.color_3 {
-	background-color: #21c743
+	background-color: darkblue !important
 }
 .color-box li.color_3:before {
 	background: #0d1432;
@@ -885,7 +885,7 @@ button, button:focus {
 	left: -50px;
 	height: 110px;
 	width: 115%;
-	background-color: rgba(23,199,136,0.5);
+	background-color: darkblue !important;
 	top: 56%;
 	transform: rotate(-15deg);
 	z-index: 9;
@@ -1934,7 +1934,7 @@ sup {
 }
 .dashboard-panel .success {
 	border-left: 5px solid;
-	border-left-color: #67c339;
+	border-left-color: darkblue !important;
 	border-radius: 0
 }
 .dashboard-panel .success.alert {
@@ -2222,7 +2222,7 @@ Register page
 }
 .compare-list-properties .available::before, .compare-list-properties .not-available::before {
 	content: "\f00c";
-	color: #2ab160;
+	color: darkblue !important;
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 	display: inline-block;
@@ -2966,6 +2966,7 @@ form.subscribe {
 .error-text {
 	width: 100%
 }
+
 .comming-soon .bg-shape {
 	display: none
 }

@@ -1,15 +1,4 @@
-/**
- * draggable - Class allows to make any element draggable
- * 
- * Written by
- * Egor Khmelev (hmelyoff@gmail.com)
- *
- * Licensed under the MIT (MIT-LICENSE.txt).
- *
- * @author Egor Khmelev
- * @version 0.1.0-BETA ($Id$)
- * 
- **/
+
 
 (function( $ ){
 
