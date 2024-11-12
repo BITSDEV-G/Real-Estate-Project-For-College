@@ -4,13 +4,31 @@ $error = "";
 $msg = "";
 
 if (isset($_REQUEST['insert'])) {
-    $name = $_REQUEST['name'];
-    $email = $_REQUEST['email'];
+    $name = trim($_REQUEST['name']);
+    $email = trim($_REQUEST['email']);
     $pass = $_REQUEST['pass'];
     $dob = $_REQUEST['dob'];
-    $phone = $_REQUEST['phone'];
-    
-    if (!empty($name) && !empty($email) && !empty($pass) && !empty($dob) && !empty($phone)) {
+    $phone = trim($_REQUEST['phone']);
+
+    // Server-side validations
+    if (empty($name) || strlen($name) < 3) {
+        $error = "* Name must be at least 3 characters long!";
+    } elseif (!preg_match("/^[a-zA-Z0-9._%+-]+@gmail\.com$/", $email)) {
+        $error = "* Please enter a valid Gmail address!";
+    } elseif (strlen($pass) < 6 || !preg_match('/\d/', $pass)) {
+        $error = "* Password must be at least 6 characters long and include at least one number!";
+    } elseif (empty($dob) || new DateTime($dob) >= new DateTime()) {
+        $error = "* Please enter a valid date of birth!";
+    } elseif (!preg_match('/^07[0-9]{8}$/', $phone)) {
+        $error = "* Phone number must be a valid Kenyan number starting with 07!";
+    } else {
+        // Sanitize and insert the data into the database
+        $name = mysqli_real_escape_string($con, $name);
+        $email = mysqli_real_escape_string($con, $email);
+        $pass = mysqli_real_escape_string($con, $pass);
+        $dob = mysqli_real_escape_string($con, $dob);
+        $phone = mysqli_real_escape_string($con, $phone);
+
         $sql = "INSERT INTO admin (auser, aemail, apass, adob, aphone) VALUES ('$name', '$email', '$pass', '$dob', '$phone')";
         $result = mysqli_query($con, $sql);
         if ($result) {
@@ -18,8 +36,6 @@ if (isset($_REQUEST['insert'])) {
         } else {
             $error = '* Registration failed, please try again';
         }
-    } else {
-        $error = "* Please fill in all the fields!";
     }
 }
 ?>
@@ -137,7 +153,7 @@ if (isset($_REQUEST['insert'])) {
                             <?php endif; ?>
 
                             <!-- Registration Form -->
-                            <form method="post">
+                            <form method="post" onsubmit="return validateForm()">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Name" name="name" required>
                                 </div>
@@ -175,8 +191,47 @@ if (isset($_REQUEST['insert'])) {
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     
-    <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <!-- Custom JavaScript for Client-Side Validation -->
+    <script>
+      function validateForm() {
+        let name = document.querySelector("[name='name']").value.trim();
+        let email = document.querySelector("[name='email']").value.trim();
+        let pass = document.querySelector("[name='pass']").value;
+        let dob = document.querySelector("[name='dob']").value;
+        let phone = document.querySelector("[name='phone']").value.trim();
+
+        if (name.length < 3) {
+          alert("Name must be at least 3 characters.");
+          return false;
+        }
+
+        let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid Gmail address.");
+          return false;
+        }
+
+        if (pass.length < 6 || !/\d/.test(pass)) {
+          alert("Password must be at least 6 characters long and include at least one number.");
+          return false;
+        }
+
+        let phonePattern = /^07[0-9]{8}$/;
+        if (!phonePattern.test(phone)) {
+          alert("Phone number must be a valid Kenyan number starting with 07.");
+          return false;
+        }
+
+        let today = new Date();
+        let dobDate = new Date(dob);
+        if (!dob || dobDate >= today) {
+          alert("Please enter a valid date of birth.");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
     
 </body>
 </html>

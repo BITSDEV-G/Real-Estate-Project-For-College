@@ -2,34 +2,53 @@
 include("config.php");
 $error = "";
 $msg = "";
+
 if (isset($_REQUEST['reg'])) {
-    $name = $_REQUEST['name'];
-    $email = $_REQUEST['email'];
-    $phone = $_REQUEST['phone'];
+    $name = trim($_REQUEST['name']);
+    $email = trim($_REQUEST['email']);
+    $phone = trim($_REQUEST['phone']);
     $pass = $_REQUEST['pass'];
     $utype = $_REQUEST['utype'];
-    
     $uimage = $_FILES['uimage']['name'];
     $temp_name1 = $_FILES['uimage']['tmp_name'];
     
-    $query = "SELECT * FROM user WHERE uemail='$email'";
-    $res = mysqli_query($con, $query);
-    $num = mysqli_num_rows($res);
-    
-    if ($num == 1) {
-        $error = "<p class='alert alert-warning'>Email Id already Exist</p>";
+    // Server-side validation
+    if (empty($name) || strlen($name) < 3) {
+        $error = "<p class='alert alert-warning'>* Name must be at least 3 characters long!</p>";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match("/^[a-zA-Z0-9._%+-]+@gmail\.com$/", $email)) {
+        $error = "<p class='alert alert-warning'>* Please enter a valid Gmail address!</p>";
+    } elseif (!preg_match('/^07[0-9]{8}$/', $phone)) {
+        $error = "<p class='alert alert-warning'>* Phone number must be a valid Kenyan number starting with 07!</p>";
+    } elseif (strlen($pass) < 6 || !preg_match('/[A-Za-z]/', $pass) || !preg_match('/\d/', $pass)) {
+        $error = "<p class='alert alert-warning'>* Password must be at least 6 characters long and contain both letters and numbers!</p>";
+    } elseif (empty($uimage)) {
+        $error = "<p class='alert alert-warning'>* Please upload a user image!</p>";
     } else {
-        if (!empty($name) && !empty($email) && !empty($phone) && !empty($pass) && !empty($uimage)) {
+        // Check if email already exists
+        $query = "SELECT * FROM user WHERE uemail='$email'";
+        $res = mysqli_query($con, $query);
+        $num = mysqli_num_rows($res);
+        
+        if ($num == 1) {
+            $error = "<p class='alert alert-warning'>Email Id already exists</p>";
+        } else {
+            // Sanitize inputs
+            $name = mysqli_real_escape_string($con, $name);
+            $email = mysqli_real_escape_string($con, $email);
+            $phone = mysqli_real_escape_string($con, $phone);
+            $pass = mysqli_real_escape_string($con, $pass);
+            $uimage = mysqli_real_escape_string($con, $uimage);
+
+            // Insert into database
             $sql = "INSERT INTO user (uname, uemail, uphone, upass, utype, uimage) VALUES ('$name', '$email', '$phone', '$pass', '$utype', '$uimage')";
             $result = mysqli_query($con, $sql);
-            move_uploaded_file($temp_name1, "admin/user/$uimage");
+            
             if ($result) {
+                move_uploaded_file($temp_name1, "admin/user/$uimage");
                 $msg = "<p class='alert alert-success'>Register Successfully</p>";
             } else {
-                $error = "<p class='alert alert-warning'>Register Not Successfully</p>";
+                $error = "<p class='alert alert-warning'>Registration Not Successful</p>";
             }
-        } else {
-            $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
         }
     }
 }
@@ -176,17 +195,17 @@ if (isset($_REQUEST['reg'])) {
                                             <input type="radio" class="form-check-input" name="utype" value="user" checked>User
                                         </label>
                                     </div>
-                                    <div class="form-check-inline">
+                                    <!-- <div class="form-check-inline">
                                         <label class="form-check-label">
                                             <input type="radio" class="form-check-input" name="utype" value="agent">Agent
                                         </label>
-                                    </div>
-                                    <div class="form-check-inline disabled">
-                                        <label class="form-check-label">
+                                    </div> -->
+                                    <!-- <div class="form-check-inline disabled"> -->
+                                        <!-- <label class="form-check-label">
                                             <input type="radio" class="form-check-input" name="utype" value="builder">Builder
                                         </label>
                                     </div> 
-                                    
+                                     -->
                                     <div class="form-group">
                                         <label class="col-form-label"><b>User Image</b></label>
                                         <input class="form-control" name="uimage" type="file" required>
@@ -231,5 +250,28 @@ if (isset($_REQUEST['reg'])) {
 <script src="js/jquery.slider.js"></script> 
 <script src="js/wow.js"></script> 
 <script src="js/custom.js"></script>
+<script>
+function validateForm() {
+    let email = document.querySelector("[name='email']").value.trim();
+    let phone = document.querySelector("[name='phone']").value.trim();
+    let pass = document.querySelector("[name='pass']").value;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    let phonePattern = /^07[0-9]{8}$/;
+    
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid Gmail address.");
+        return false;
+    }
+    if (!phonePattern.test(phone)) {
+        alert("Please enter a valid Kenyan phone number starting with 07.");
+        return false;
+    }
+    if (pass.length < 6 || !/[A-Za-z]/.test(pass) || !/\d/.test(pass)) {
+        alert("Password must be at least 6 characters long and contain both letters and numbers.");
+        return false;
+    }
+    return true;
+}
+</script>
 </body>
 </html>

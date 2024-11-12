@@ -5,25 +5,25 @@ $error="";
 $msg="";
 if(isset($_REQUEST['login']))
 {
-	$email=$_REQUEST['email'];
-	$pass=$_REQUEST['pass'];
-	
-	if(!empty($email) && !empty($pass))
-	{
-		$sql = "SELECT * FROM user WHERE uemail='$email' AND upass='$pass'";
-		$result=mysqli_query($con, $sql);
-		$row=mysqli_fetch_array($result);
-		if($row){
-			$_SESSION['uid']=$row['uid'];
-			$_SESSION['uemail']=$email;
-			header("location:index.php");
-		}
-		else{
-			$error = "<p class='alert alert-warning'>Login Not Successfully</p> ";
-		}
-	}else{
-		$error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
-	}
+    $email = $_REQUEST['email'];
+    $pass = $_REQUEST['pass'];
+
+    if(!empty($email) && !empty($pass))
+    {
+        $sql = "SELECT * FROM user WHERE uemail='$email' AND upass='$pass'";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_array($result);
+        if($row){
+            $_SESSION['uid'] = $row['uid'];
+            $_SESSION['uemail'] = $email;
+            header("location:index.php");
+        }
+        else {
+            $error = "<p class='alert alert-warning'>Login Not Successful</p>";
+        }
+    } else {
+        $error = "<p class='alert alert-warning'>Please Fill all the fields</p>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -150,12 +150,12 @@ if(isset($_REQUEST['login']))
                                 <p class="account-subtitle">Welcome Back</p>
                                 <?php echo $error; ?><?php echo $msg; ?>
                                 <!-- Form -->
-                                <form method="post">
+                                <form method="post" onsubmit="return validateLogin()">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-control" placeholder="Your Email*" required>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email*" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="pass" class="form-control" placeholder="Your Password*" required>
+                                        <input type="password" name="pass" id="pass" class="form-control" placeholder="Your Password*" required>
                                     </div>
                                     
                                     <button class="btn btn-primary" name="login" value="Login" type="submit">Login</button>
@@ -186,5 +186,31 @@ if(isset($_REQUEST['login']))
 <script src="js/popper.min.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/custom.js"></script>
+
+<script>
+function validateLogin() {
+    var email = document.getElementById("email").value.trim();
+    var pass = document.getElementById("pass").value.trim();
+
+    if (email === "" || pass === "") {
+        alert("Both email and password fields are required.");
+        return false;
+    }
+
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid Gmail address.");
+        return false;
+    }
+
+    if (pass.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+
+    return true; 
+}
+</script>
+
 </body>
 </html>
